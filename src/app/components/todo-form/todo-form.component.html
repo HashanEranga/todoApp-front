@@ -1,0 +1,15 @@
+<div class="container mt-5">
+    <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="description" class="mb-2">Description : </label>
+            <input type="text" class="form-control" id="description" placeholder="Enter the todo item" [(ngModel)]="formData.description" [ngModelOptions]="{standalone: true}">
+        </div>
+        <ng-container *ngIf="editItem else AddNewItem">
+            <button type="submit" class="btn btn-dark mt-2">Edit</button>
+        </ng-container>
+    </form>
+</div>
+
+<ng-template #AddNewItem>
+    <button type="submit" class="btn btn-dark mt-2">Add</button>
+</ng-template>
